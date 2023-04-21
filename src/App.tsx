@@ -1,13 +1,11 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
+      <p>test3</p>
+      <Link to='/test'>Test2</Link>
     </div>
   );
 }

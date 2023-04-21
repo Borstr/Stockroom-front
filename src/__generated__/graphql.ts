@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -157,6 +158,7 @@ export type Task = {
   entryDate?: Maybe<Scalars['String']>;
   finishDate?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['ID']>;
+  instructions?: Maybe<Scalars['String']>;
   products?: Maybe<Array<Maybe<ProductInDemand>>>;
   title?: Maybe<Scalars['String']>;
 };
@@ -164,6 +166,7 @@ export type Task = {
 export type TaskInput = {
   entryDate: Scalars['String'];
   finishDate: Scalars['String'];
+  instructions?: InputMaybe<Scalars['String']>;
   products: Array<InputMaybe<ProductInDemandInput>>;
   title: Scalars['String'];
 };
@@ -172,6 +175,15 @@ export type TaskUpdateInput = {
   entryDate?: InputMaybe<Scalars['String']>;
   finishDate?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
+  instructions?: InputMaybe<Scalars['String']>;
   products?: InputMaybe<Array<InputMaybe<ProductInDemandInput>>>;
   title?: InputMaybe<Scalars['String']>;
 };
+
+export type GetTasksQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetTasksQuery = { __typename?: 'Query', getTasks?: Array<{ __typename?: 'Task', title?: string | null, id?: string | null, entryDate?: string | null, finishDate?: string | null, instructions?: string | null, products?: Array<{ __typename?: 'ProductInDemand', amount: number, product: { __typename?: 'Product', title?: string | null, width?: number | null, model?: string | null, length?: number | null, inStock?: number | null, inDelivery?: number | null, imagePath?: string | null, id?: string | null, height?: number | null, color?: string | null } } | null> | null } | null> | null };
+
+
+export const GetTasksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getTasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getTasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"entryDate"}},{"kind":"Field","name":{"kind":"Name","value":"finishDate"}},{"kind":"Field","name":{"kind":"Name","value":"instructions"}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"product"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"model"}},{"kind":"Field","name":{"kind":"Name","value":"length"}},{"kind":"Field","name":{"kind":"Name","value":"inStock"}},{"kind":"Field","name":{"kind":"Name","value":"inDelivery"}},{"kind":"Field","name":{"kind":"Name","value":"imagePath"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetTasksQuery, GetTasksQueryVariables>;
